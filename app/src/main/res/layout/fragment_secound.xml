@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Layout for selecting a flavor -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".SecoundFragment">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.finalpro.model.Viewmodeldounts" />
+
+        <variable
+            name="SecoundFragment"
+            type="com.example.finalpro.SecoundFragment" />
+    </data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="50dp">
+
+            <RadioGroup
+                android:id="@+id/flavor_options"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RadioButton
+                    android:id="@+id/chocolate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@{viewModel.flavor.equals(@string/flavorone)}"
+                    android:onClick="@{() -> viewModel.setFlavor(@string/flavorone)}"
+                    android:text="@string/flavorone" />
+
+                <RadioButton
+                    android:id="@+id/Glazed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@{viewModel.flavor.equals(@string/flavortwo)}"
+                    android:onClick="@{() -> viewModel.setFlavor(@string/flavortwo)}"
+                    android:text="@string/flavortwo" />
+
+                <RadioButton
+                    android:id="@+id/sugar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@{viewModel.flavor.equals(@string/flavorthree)}"
+                    android:onClick="@{() -> viewModel.setFlavor(@string/flavorthree)}"
+                    android:text="@string/flavorthree" />
+
+                <RadioButton
+                    android:id="@+id/peant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@{viewModel.flavor.equals(@string/flavorfour)}"
+                    android:onClick="@{() -> viewModel.setFlavor(@string/flavorfour)}"
+                    android:text="@string/flavorfour" />
+
+
+            </RadioGroup>
+
+            <View
+                android:id="@+id/divider"
+                style="parent"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/flavor_options" />
+
+
+
+            <Button
+                android:id="@+id/flavorbutton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="@string/next"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+            <TextView
+                android:id="@+id/subtotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="16dp"
+                android:text="@{@string/subtotal_price(viewModel.price)}"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/flavorbutton"
+                tools:text="Subtotal $5.00" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
